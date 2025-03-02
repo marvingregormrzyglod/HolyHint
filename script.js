@@ -34,6 +34,8 @@ const strategies = [
 const strategyElement = document.getElementById("strategy");
 const verseElement = document.getElementById("verse");
 const cardElement = document.getElementById("card");
+const darkModeToggle = document.getElementById("dark-mode-toggle");
+const shareButton = document.getElementById("share-button");
 
 let seenIndices = [];
 let currentIndex;
@@ -52,20 +54,27 @@ function getRandomUnseenIndex() {
 }
 
 function showStrategy() {
-    strategyElement.textContent = strategies[currentIndex].text;
-    verseElement.textContent = strategies[currentIndex].verse;
+    cardElement.classList.add("changing");
+    setTimeout(() => {
+        strategyElement.textContent = strategies[currentIndex].text;
+        verseElement.textContent = strategies[currentIndex].verse;
+        cardElement.classList.remove("changing");
+    }, 150);
 }
 
 function triggerBounce() {
     cardElement.classList.remove("bounce");
-    void cardElement.offsetWidth; // Force reflow to restart animation
+    void cardElement.offsetWidth;
     cardElement.classList.add("bounce");
 }
 
+// Initial load
 currentIndex = getRandomUnseenIndex();
+cardElement.classList.add("loading");
 showStrategy();
+setTimeout(() => cardElement.classList.remove("loading"), 500);
 
-// Click and touch event listeners
+// Card tap events
 cardElement.addEventListener("click", () => {
     triggerBounce();
     currentIndex = getRandomUnseenIndex();
@@ -73,8 +82,29 @@ cardElement.addEventListener("click", () => {
 });
 
 cardElement.addEventListener("touchstart", (e) => {
-    e.preventDefault(); // Prevent default touch behavior
+    e.preventDefault();
     triggerBounce();
     currentIndex = getRandomUnseenIndex();
     showStrategy();
+});
+
+// Dark mode toggle
+darkModeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+});
+
+// Share feature
+shareButton.addEventListener("click", () => {
+    const shareData = {
+        title: "Holy Nudge",
+        text: `${strategies[currentIndex].text}\n${strategies[currentIndex].verse}`,
+        url: window.location.href
+    };
+    if (navigator.share) {
+        navigator.share(shareData)
+            .then(() => console.log("Shared successfully"))
+            .catch(err => console.log("Share failed:", err));
+    } else {
+        alert("Web Share API not supported. Copy this:\n" + shareData.text);
+    }
 });
