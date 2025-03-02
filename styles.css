@@ -42,8 +42,8 @@ body {
     transition: transform 0.1s ease; /* Smooth transition for bounce */
 }
 
-#card:active {
-    animation: bounce 0.3s ease; /* Bounce animation on click/tap */
+#card.bounce {
+    animation: bounce 0.3s ease;
 }
 
 @keyframes bounce {
