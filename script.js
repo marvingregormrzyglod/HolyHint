@@ -56,10 +56,25 @@ function showStrategy() {
     verseElement.textContent = strategies[currentIndex].verse;
 }
 
+function triggerBounce() {
+    cardElement.classList.remove("bounce");
+    void cardElement.offsetWidth; // Force reflow to restart animation
+    cardElement.classList.add("bounce");
+}
+
 currentIndex = getRandomUnseenIndex();
 showStrategy();
 
+// Click and touch event listeners
 cardElement.addEventListener("click", () => {
+    triggerBounce();
+    currentIndex = getRandomUnseenIndex();
+    showStrategy();
+});
+
+cardElement.addEventListener("touchstart", (e) => {
+    e.preventDefault(); // Prevent default touch behavior
+    triggerBounce();
     currentIndex = getRandomUnseenIndex();
     showStrategy();
 });
