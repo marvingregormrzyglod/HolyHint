@@ -35,13 +35,14 @@ let currentIndex = 0;
 
 const strategyElement = document.getElementById("strategy");
 const verseElement = document.getElementById("verse");
+const cardElement = document.getElementById("card");
 
 function showStrategy() {
     strategyElement.textContent = strategies[currentIndex].text;
     verseElement.textContent = strategies[currentIndex].verse;
 }
 
-document.body.addEventListener("click", () => {
+cardElement.addEventListener("click", () => {
     currentIndex = (currentIndex + 1) % strategies.length;
     showStrategy();
 });
