@@ -39,6 +39,7 @@ const shareButton = document.getElementById("share-button");
 
 let seenIndices = [];
 let currentIndex;
+let isProcessing = false; // Debounce flag
 
 function getRandomUnseenIndex() {
     const availableIndices = strategies.map((_, i) => i).filter(i => !seenIndices.includes(i));
@@ -68,25 +69,25 @@ function triggerBounce() {
     cardElement.classList.add("bounce");
 }
 
+function handleCardInteraction(e) {
+    e.preventDefault(); // Prevent default touch/click behavior
+    if (isProcessing) return; // Ignore if already processing
+    isProcessing = true;
+    triggerBounce();
+    currentIndex = getRandomUnseenIndex();
+    showStrategy();
+    setTimeout(() => { isProcessing = false; }, 300); // Debounce time matches animation
+}
+
 // Initial load
 currentIndex = getRandomUnseenIndex();
 cardElement.classList.add("loading");
 showStrategy();
 setTimeout(() => cardElement.classList.remove("loading"), 500);
 
-// Card tap events
-cardElement.addEventListener("click", () => {
-    triggerBounce();
-    currentIndex = getRandomUnseenIndex();
-    showStrategy();
-});
-
-cardElement.addEventListener("touchstart", (e) => {
-    e.preventDefault();
-    triggerBounce();
-    currentIndex = getRandomUnseenIndex();
-    showStrategy();
-});
+// Unified card interaction handler
+cardElement.addEventListener("click", handleCardInteraction);
+cardElement.addEventListener("touchstart", handleCardInteraction);
 
 // Dark mode toggle
 darkModeToggle.addEventListener("click", () => {
