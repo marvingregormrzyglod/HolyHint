@@ -35,15 +35,13 @@ const strategyElement = document.getElementById("strategy");
 const verseElement = document.getElementById("verse");
 const cardElement = document.getElementById("card");
 
-let seenIndices = []; // Tracks which strategies have been seen
+let seenIndices = [];
 let currentIndex;
 
-// Function to pick a random unseen strategy
 function getRandomUnseenIndex() {
     const availableIndices = strategies.map((_, i) => i).filter(i => !seenIndices.includes(i));
     
     if (availableIndices.length === 0) {
-        // All strategies seen, reset the seen list
         seenIndices = [];
         return Math.floor(Math.random() * strategies.length);
     }
@@ -58,11 +56,9 @@ function showStrategy() {
     verseElement.textContent = strategies[currentIndex].verse;
 }
 
-// Set initial random strategy on load
 currentIndex = getRandomUnseenIndex();
 showStrategy();
 
-// Change to a new random unseen strategy on click
 cardElement.addEventListener("click", () => {
     currentIndex = getRandomUnseenIndex();
     showStrategy();
