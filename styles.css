@@ -2,21 +2,35 @@ body {
     background-color: #ffffff;
     margin: 0;
     padding: 0;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     font-family: Arial, sans-serif;
 }
 
+#logo {
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+#logo h1 {
+    font-size: 2rem;
+    color: #333;
+    margin: 0;
+    padding: 0 1rem;
+}
+
 #card {
-    background-color: #e0e0e0; /* Darker gray for contrast */
-    width: 80vw; /* Scales with viewport width */
-    max-width: 350px; /* Caps width for larger screens */
-    height: 60vh; /* Scales with viewport height */
-    max-height: 450px; /* Caps height for larger screens */
+    background-color: #e0e0e0;
+    width: 80vw;
+    max-width: 350px;
+    height: 60vh;
+    max-height: 450px;
     border-radius: 12px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Stronger shadow */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -24,19 +38,31 @@ body {
     text-align: center;
     padding: 20px;
     cursor: pointer;
-    user-select: none; /* Prevents text selection on tap */
+    user-select: none;
+    transition: transform 0.1s ease; /* Smooth transition for bounce */
+}
+
+#card:active {
+    animation: bounce 0.3s ease; /* Bounce animation on click */
 }
 
 #strategy {
-    font-size: 1.6rem; /* Slightly larger for readability */
+    font-size: 1.6rem;
     margin-bottom: 1.5rem;
-    color: #222; /* Darker for contrast */
+    color: #222;
 }
 
 #verse {
     font-size: 1rem;
     font-style: italic;
-    color: #555; /* Slightly lighter but still readable */
+    color: #555;
+}
+
+/* Bounce animation */
+@keyframes bounce {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.95); } /* Slightly shrink */
+    100% { transform: scale(1); } /* Return to normal */
 }
 
 /* Portrait mode adjustments */
@@ -50,6 +76,9 @@ body {
     }
     #verse {
         font-size: 0.9rem;
+    }
+    #logo h1 {
+        font-size: 1.8rem;
     }
 }
 
@@ -65,6 +94,9 @@ body {
     #verse {
         font-size: 1.1rem;
     }
+    #logo h1 {
+        font-size: 2rem;
+    }
 }
 
 /* Small screens (e.g., phones) */
@@ -77,5 +109,8 @@ body {
     }
     #verse {
         font-size: 0.85rem;
+    }
+    #logo h1 {
+        font-size: 1.5rem;
     }
 }
