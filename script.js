@@ -31,21 +31,39 @@ const strategies = [
     { text: "Wait for the dawn.", verse: "Weeping may tarry for the night, but joy comes with the morning. – Psalm 30:5 (ESV)" }
 ];
 
-let currentIndex = 0;
-
 const strategyElement = document.getElementById("strategy");
 const verseElement = document.getElementById("verse");
 const cardElement = document.getElementById("card");
+
+let seenIndices = []; // Tracks which strategies have been seen
+let currentIndex;
+
+// Function to pick a random unseen strategy
+function getRandomUnseenIndex() {
+    const availableIndices = strategies.map((_, i) => i).filter(i => !seenIndices.includes(i));
+    
+    if (availableIndices.length === 0) {
+        // All strategies seen, reset the seen list
+        seenIndices = [];
+        return Math.floor(Math.random() * strategies.length);
+    }
+
+    const randomIndex = availableIndices[Math.floor(Math.random() * availableIndices.length)];
+    seenIndices.push(randomIndex);
+    return randomIndex;
+}
 
 function showStrategy() {
     strategyElement.textContent = strategies[currentIndex].text;
     verseElement.textContent = strategies[currentIndex].verse;
 }
 
+// Set initial random strategy on load
+currentIndex = getRandomUnseenIndex();
+showStrategy();
+
+// Change to a new random unseen strategy on click
 cardElement.addEventListener("click", () => {
-    currentIndex = (currentIndex + 1) % strategies.length;
+    currentIndex = getRandomUnseenIndex();
     showStrategy();
 });
-
-// Show the first strategy on load
-showStrategy();
