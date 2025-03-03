@@ -9,6 +9,7 @@
     --text-secondary: #3c3c3c;
     --hint-color: #666;
     --icon-color: #333;
+    --footer-bg: #f7f7f7; /* Subtle footer background */
 }
 
 body.dark-mode {
@@ -22,6 +23,7 @@ body.dark-mode {
     --text-secondary: #b0b0b0;
     --hint-color: #999;
     --icon-color: #ccc;
+    --footer-bg: #222; /* Dark mode footer */
 }
 
 body {
@@ -34,7 +36,7 @@ body {
     justify-content: center;
     align-items: center;
     font-family: 'Roboto', sans-serif;
-    gap: 1rem;
+    gap: 1.5rem; /* Slightly increased for footer spacing */
     transition: background 0.3s ease;
 }
 
@@ -164,17 +166,24 @@ body.dark-mode #toggle-icon::before {
 }
 
 footer {
-    margin-top: 1rem;
-    text-align: center;
+    margin-top: 1.5rem;
+    padding: 8px 16px;
+    background: var(--footer-bg);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px var(--shadow-hover);
+    transition: background 0.3s ease;
 }
 
 #copyright {
     font-family: 'Roboto', sans-serif;
+    font-weight: 400;
     font-size: 0.75rem;
-    color: var(--hint-color);
+    color: var(--text-secondary);
+    letter-spacing: 0.5px;
     margin: 0;
-    padding: 0 10px;
-    line-height: 1.2;
+    padding: 0;
+    line-height: 1.4;
+    text-align: center;
     transition: color 0.3s ease;
 }
 
@@ -231,5 +240,8 @@ footer {
     }
     #copyright {
         font-size: 0.65rem;
+    }
+    footer {
+        padding: 6px 12px;
     }
 }
