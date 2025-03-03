@@ -180,10 +180,13 @@ body.dark-mode #toggle-icon::before {
 
 footer {
     margin-top: 1.5rem;
-    padding: 10px 16px; /* Slightly more vertical padding for two lines */
+    padding: 10px 16px;
     background: var(--footer-bg);
     border-radius: 8px;
     box-shadow: 0 2px 4px var(--shadow-hover);
+    display: flex; /* Added to center content */
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
     transition: background 0.3s ease;
 }
 
@@ -195,8 +198,8 @@ footer {
     letter-spacing: 0.5px;
     margin: 0;
     padding: 0;
-    line-height: 1.5; /* Increased for better line separation */
-    text-align: center;
+    line-height: 1.5;
+    text-align: center; /* Already present, reinforced */
     transition: color 0.3s ease;
 }
 
@@ -254,10 +257,7 @@ footer {
     #copyright {
         font-size: 0.65rem;
     }
-    header {
-        padding: 6px 12px;
-    }
     footer {
-        padding: 8px 12px; /* Adjusted for small screens */
+        padding: 8px 12px;
     }
 }
