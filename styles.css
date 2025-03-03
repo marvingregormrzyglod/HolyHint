@@ -10,7 +10,6 @@
     --hint-color: #666;
     --icon-color: #333;
     --footer-bg: #f7f7f7;
-    --header-bg: #f7f7f7;
 }
 
 body.dark-mode {
@@ -25,7 +24,6 @@ body.dark-mode {
     --hint-color: #999;
     --icon-color: #ccc;
     --footer-bg: #222;
-    --header-bg: #222;
 }
 
 body {
@@ -42,26 +40,17 @@ body {
     transition: background 0.3s ease;
 }
 
-header {
-    margin-bottom: 1.5rem;
-    padding: 8px 16px;
-    background: var(--header-bg);
-    border-radius: 8px;
-    box-shadow: 0 2px 4px var(--shadow-hover);
-    transition: background 0.3s ease;
-}
-
 #intro {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 500;
-    font-size: 1rem;
-    color: var(--text-primary);
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.1rem; /* Slightly larger for polish */
+    color: var(--text-secondary);
     text-align: center;
     max-width: 400px;
-    margin: 0;
-    padding: 0;
+    margin: 0 0 1.5rem 0; /* Consistent spacing below */
+    padding: 0 10px;
     line-height: 1.4;
-    letter-spacing: 0.5px;
     transition: color 0.3s ease;
 }
 
@@ -184,9 +173,9 @@ footer {
     background: var(--footer-bg);
     border-radius: 8px;
     box-shadow: 0 2px 4px var(--shadow-hover);
-    display: flex; /* Added to center content */
-    justify-content: center; /* Centers horizontally */
-    align-items: center; /* Centers vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     transition: background 0.3s ease;
 }
 
@@ -199,7 +188,7 @@ footer {
     margin: 0;
     padding: 0;
     line-height: 1.5;
-    text-align: center; /* Already present, reinforced */
+    text-align: center;
     transition: color 0.3s ease;
 }
 
@@ -215,7 +204,7 @@ footer {
         font-size: 0.95rem;
     }
     #intro {
-        font-size: 0.95rem;
+        font-size: 1rem; /* Slightly larger for readability */
     }
     #copyright {
         font-size: 0.7rem;
@@ -234,7 +223,7 @@ footer {
         font-size: 1.1rem;
     }
     #intro {
-        font-size: 1rem;
+        font-size: 1.1rem;
     }
     #copyright {
         font-size: 0.75rem;
@@ -252,7 +241,7 @@ footer {
         font-size: 0.9rem;
     }
     #intro {
-        font-size: 0.85rem;
+        font-size: 0.9rem; /* Adjusted for small screens */
     }
     #copyright {
         font-size: 0.65rem;
