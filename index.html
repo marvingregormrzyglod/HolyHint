@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Holy Nudge</title>
+    <title>Holy Hint</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Lora:ital,wght@0,400;1,400&display=swap">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 2L2 22h20L12 2z' fill='%232c3e50'/></svg>" type="image/svg+xml">
 </head>
 <body>
-    <p id="intro">Advice from Jesus, when you need direction. Promotes lateral thinking through scripture.</p>
+    <header>
+        <p id="intro">Advice from Jesus, when you need direction. Promotes lateral thinking through scripture.</p>
+    </header>
     <div id="card" role="button" aria-label="Tap to shuffle to a new strategy">
         <h2 id="strategy"></h2>
         <p id="verse"></p>
@@ -19,9 +21,11 @@
         <span id="toggle-icon" class="icon"></span>
     </button>
     <footer>
-        <small id="copyright">Provided by The Salty Friends. Code developed by Marvin Gregor Mrzyglod.</p>
+        <small id="copyright">
+            <span>Provided by The Salty Friends</span><br>
+            <span>Developed by Marvin Gregor Mrzyglod</span>
+        </small>
     </footer>
     <script src="script.js"></script>
 </body>
 </html>
-
