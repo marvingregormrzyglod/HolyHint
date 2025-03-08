@@ -44,11 +44,11 @@ body {
     font-family: 'Lora', serif;
     font-style: italic;
     font-weight: 400;
-    font-size: 1.1rem; /* Slightly larger for polish */
+    font-size: 1.1rem;
     color: var(--text-secondary);
     text-align: center;
     max-width: 400px;
-    margin: 0 0 1.5rem 0; /* Consistent spacing below */
+    margin: 0 0 2rem 0; /* Increased bottom margin for more breathing room */
     padding: 0 10px;
     line-height: 1.4;
     transition: color 0.3s ease;
@@ -59,8 +59,8 @@ body {
     border: 1px solid var(--card-border);
     width: 85vw;
     max-width: 400px;
-    height: 65vh;
-    max-height: 500px;
+    height: 55vh; /* Reduced from 65vh */
+    max-height: 450px; /* Reduced from 500px */
     border-radius: 12px;
     box-shadow: 0 6px 12px var(--shadow);
     display: flex;
@@ -173,6 +173,7 @@ footer {
     background: var(--footer-bg);
     border-radius: 8px;
     box-shadow: 0 2px 4px var(--shadow-hover);
+    width: auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -189,13 +190,15 @@ footer {
     padding: 0;
     line-height: 1.5;
     text-align: center;
+    display: block;
+    width: 100%;
     transition: color 0.3s ease;
 }
 
 @media (orientation: portrait) {
     #card {
         width: 90vw;
-        height: 55vh;
+        height: 45vh; /* Reduced from 55vh */
     }
     #strategy {
         font-size: 1.5rem;
@@ -204,7 +207,7 @@ footer {
         font-size: 0.95rem;
     }
     #intro {
-        font-size: 1rem; /* Slightly larger for readability */
+        font-size: 1rem;
     }
     #copyright {
         font-size: 0.7rem;
@@ -214,7 +217,7 @@ footer {
 @media (orientation: landscape) {
     #card {
         width: 75vw;
-        height: 75vh;
+        height: 65vh; /* Reduced from 75vh */
     }
     #strategy {
         font-size: 1.8rem;
@@ -233,6 +236,8 @@ footer {
 @media (max-width: 500px) {
     #card {
         padding: 20px;
+        height: 40vh; /* Further reduced for small screens */
+        max-height: 400px; /* Adjusted accordingly */
     }
     #strategy {
         font-size: 1.4rem;
@@ -241,7 +246,7 @@ footer {
         font-size: 0.9rem;
     }
     #intro {
-        font-size: 0.9rem; /* Adjusted for small screens */
+        font-size: 0.9rem;
     }
     #copyright {
         font-size: 0.65rem;
